@@ -10,11 +10,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

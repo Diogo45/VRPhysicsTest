@@ -17,10 +17,7 @@ public class VRMap
         rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotOffset);
     }
 
-    
-
 }
-
 
 public class VRRig : MonoBehaviour
 {
@@ -39,7 +36,7 @@ public class VRRig : MonoBehaviour
         headBodyOffset = transform.position - headConstraint.position;
     }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         transform.position = headConstraint.position + headBodyOffset;
