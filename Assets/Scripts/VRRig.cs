@@ -39,11 +39,11 @@ public class VRRig : MonoBehaviour
     
     void FixedUpdate()
     {
-        transform.position = headConstraint.position + headBodyOffset;
-        transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, turnSmoothness);
+        //transform.position = headConstraint.position + headBodyOffset;
+        //transform.forward = Vector3.Lerp(transform.forward, Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, turnSmoothness);
 
-        head.Map();
-        LHand.Map();
-        RHand.Map();
+        //head.Map();
+        //LHand.Map();
+        //RHand.Map();
     }
 }
