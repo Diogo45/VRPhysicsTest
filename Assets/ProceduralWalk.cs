@@ -64,6 +64,9 @@ public class ProceduralWalk : MonoBehaviour
     public Vector4[] LFootFinalRotations;
     public Vector4[] RFootFinalRotations;
 
+    public AnimationCurve feetCurve;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -108,18 +111,23 @@ public class ProceduralWalk : MonoBehaviour
         {
             Debug.material.color = Color.red;
 
-            RTarget.position = new Vector3(rightLeg.target.transform.localPosition.x, hit.point.y + YActivation * Mathf.Clamp01(Mathf.Sin((time + YOffset) * Velocity)), ZActivation * Mathf.Sin(time * Velocity + RLegOffset));
+            //RTarget.position = new Vector3(rightLeg.target.transform.localPosition.x, hit.point.y + YActivation * Mathf.Clamp01(Mathf.Sin((time + YOffset) * Velocity)), ZActivation * Mathf.Sin(time * Velocity + RLegOffset));
 
-            RTarget.position = new Vector3(RTarget.position.x, RTarget.position.y + (rightLegBones[2].position - rightLegBones[4].position).y, RTarget.position.z);
+            if (rightLegBones[2].position.y < hit.point.y || rightLegBones[4].position.y < hit.point.y)
+                RTarget.position = new Vector3(rightLegBones[2].position.x, hit.point.y + (rightLegBones[2].position - rightLegBones[4].position).y, rightLegBones[2].position.z);
+            else
+                RTarget.position = new Vector3(rightLegBones[2].position.x, rightLegBones[2].position.y, rightLegBones[2].position.z);
+            //var timeScaleL = Mathf.Clamp01(Mathf.Sin(time * Velocity + LLegOffset));
+            //var timeScaleR = Mathf.Clamp01(Mathf.Sin(time * Velocity - (LLegOffset * 2f)));
 
-            var timeScaleL = Mathf.Clamp01(Mathf.Sin(time * Velocity + LLegOffset));
-            var timeScaleR = Mathf.Clamp01(Mathf.Sin(time * Velocity - (LLegOffset * 2f)));
 
-            LTarget.transform.localRotation = Quaternion.Slerp(Vec4ToQuat(LFootInitialRotations[0]), Vec4ToQuat(LFootFinalRotations[0]), timeScaleL);
-            RTarget.transform.localRotation = Quaternion.Slerp(Vec4ToQuat(RFootInitialRotations[0]), Vec4ToQuat(RFootFinalRotations[0]), timeScaleR);
+            //LTarget.transform.localRotation = new Quaternion(LTarget.transform.localRotation.x + feetCurve.Evaluate(time), LTarget.transform.localRotation.y, LTarget.transform.localRotation.z, LTarget.transform.localRotation.w);
+            //RTarget.transform.localRotation = new Quaternion(RFootInitialRotations[0].x + feetCurve.Evaluate(time), RFootInitialRotations[0].y, RFootInitialRotations[0].z, RFootInitialRotations[0].w);
+            //LTarget.transform.localRotation = Quaternion.Slerp(Vec4ToQuat(LFootInitialRotations[0]), Vec4ToQuat(LFootFinalRotations[0]), timeScaleL);
+            //RTarget.transform.localRotation = Quaternion.Slerp(Vec4ToQuat(RFootInitialRotations[0]), Vec4ToQuat(RFootFinalRotations[0]), timeScaleR);
 
-            leftLegBones[3].transform.localRotation = Quaternion.Slerp(Vec4ToQuat(LFootInitialRotations[1]), Vec4ToQuat(LFootFinalRotations[1]), timeScaleL);
-            rightLegBones[3].transform.localRotation = Quaternion.Slerp(Vec4ToQuat(RFootInitialRotations[1]), Vec4ToQuat(RFootFinalRotations[1]), timeScaleR);
+            //leftLegBones[3].transform.localRotation = Quaternion.Slerp(Vec4ToQuat(LFootInitialRotations[1]), Vec4ToQuat(LFootFinalRotations[1]), timeScaleL);
+            //rightLegBones[3].transform.localRotation = Quaternion.Slerp(Vec4ToQuat(RFootInitialRotations[1]), Vec4ToQuat(RFootFinalRotations[1]), timeScaleR);
 
 
             //Target.localRotation = Quaternion.Slerp();
@@ -127,10 +135,13 @@ public class ProceduralWalk : MonoBehaviour
 
         if (Physics.Raycast(LTarget.position + Vector3.up, Vector3.down, out hit))
         {
-            LTarget.position = new Vector3(leftLeg.target.transform.localPosition.x, hit.point.y + YActivation * Mathf.Clamp01(Mathf.Sin((time - YOffset) * Velocity)), ZActivation * Mathf.Sin(-time * Velocity + LLegOffset));
+            //LTarget.position = new Vector3(leftLeg.target.transform.localPosition.x, hit.point.y + YActivation * Mathf.Clamp01(Mathf.Sin((time - YOffset) * Velocity)), ZActivation * Mathf.Sin(-time * Velocity + LLegOffset));
 
-            LTarget.position = new Vector3(LTarget.position.x, LTarget.position.y + (leftLegBones[2].position - leftLegBones[4].position).y, LTarget.position.z);
-
+            //LTarget.position = new Vector3(LTarget.position.x, LTarget.position.y + (leftLegBones[2].position - leftLegBones[4].position).y, LTarget.position.z);
+            if (leftLegBones[2].position.y < hit.point.y || leftLegBones[4].position.y < hit.point.y)
+                LTarget.position = new Vector3(leftLegBones[2].position.x, hit.point.y + (leftLegBones[2].position - leftLegBones[4].position).y, leftLegBones[2].position.z);
+            else
+                LTarget.position = new Vector3(leftLegBones[2].position.x, leftLegBones[2].position.y, leftLegBones[2].position.z);
 
         }
 

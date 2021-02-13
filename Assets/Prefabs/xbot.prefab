@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1414146706
 Transform:
   m_ObjectHideFlags: 0
@@ -518,7 +518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2007386811
 Transform:
   m_ObjectHideFlags: 0
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4305128306883488003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d779fecdcee6294c98d735253c806ab, type: 3}
   m_Name: 
@@ -1840,6 +1840,75 @@ MonoBehaviour:
   RFootFinalRotations:
   - {x: 0.5, y: 0, z: 0, w: 0.5}
   - {x: 0.4, y: 0, z: 0, w: -1}
+  feetCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.09970752
+      value: 0.49923572
+      inSlope: -0.0070055956
+      outSlope: -0.0070055956
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10136528
+    - serializedVersion: 3
+      time: 0.19999999
+      value: 0.00049407454
+      inSlope: 0.0036975911
+      outSlope: 0.0036975911
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.161637
+    - serializedVersion: 3
+      time: 0.43144172
+      value: -0.0006236434
+      inSlope: 0.0193883
+      outSlope: 0.0193883
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1754701
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5357247
+      value: -0.5013162
+      inSlope: 0.03239411
+      outSlope: 0.03239411
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.35717764
+    - serializedVersion: 3
+      time: 0.64000005
+      value: 0.000012427568
+      inSlope: 0.0056533366
+      outSlope: 0.0056533366
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.62759954
+    - serializedVersion: 3
+      time: 0.9
+      value: -0.00074868463
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
 --- !u!114 &8489612791283048202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d402cd6b677efc64488d67de9fd0580d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1193685999}
   head:
     vrTarget: {fileID: 0}
     rigTarget: {fileID: 1032450759}
@@ -1872,7 +1942,28 @@ MonoBehaviour:
     trackingRotOffset: {x: -45.5, y: 0, z: -81.8}
   headConstraint: {fileID: 1032450759}
   headBodyOffset: {x: 0, y: 0, z: 0}
+  feetOffset: {x: 0, y: 0, z: 0}
   turnSmoothness: 0.2
+  leftJoystick:
+    actionPath: /actions/default/in/JoyStickPosition
+    needsReinit: 0
+  leftHand: 1
+  rightJoystick:
+    actionPath: 
+    needsReinit: 0
+  rightHand: 2
+  LeftLegBones:
+  - {fileID: 1512050979326782033}
+  - {fileID: 6071177986542498447}
+  - {fileID: 1722375130817464931}
+  - {fileID: 7994759653073675516}
+  - {fileID: 1109605192557797674}
+  RightLegBones:
+  - {fileID: 5053303612837028882}
+  - {fileID: 8898358018084690568}
+  - {fileID: 4543775610814296622}
+  - {fileID: 2235534790532711162}
+  - {fileID: 6402960496594166360}
 --- !u!95 &1193685999
 Animator:
   serializedVersion: 3
@@ -1882,8 +1973,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4305128306883488003}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: d78f47ad8d8530949b187c6a0e5d2c9d, type: 3}
+  m_Controller: {fileID: 9100000, guid: 274e96ff0c5cc5643a66d8aeaa6a35f0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
