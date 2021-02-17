@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1414146706
 Transform:
   m_ObjectHideFlags: 0
@@ -365,9 +365,9 @@ MonoBehaviour:
     m_Tip: {fileID: 4543775610814296622}
     m_Target: {fileID: 765060969}
     m_Hint: {fileID: 1922447247}
-    m_TargetPositionWeight: 1
-    m_TargetRotationWeight: 1
-    m_HintWeight: 1
+    m_TargetPositionWeight: 0.75
+    m_TargetRotationWeight: 0
+    m_HintWeight: 0
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
   m_SourceObjectsGUIToggle: 1
@@ -518,7 +518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2007386811
 Transform:
   m_ObjectHideFlags: 0
@@ -553,9 +553,9 @@ MonoBehaviour:
     m_Tip: {fileID: 1722375130817464931}
     m_Target: {fileID: 808792082}
     m_Hint: {fileID: 930091359}
-    m_TargetPositionWeight: 1
-    m_TargetRotationWeight: 1
-    m_HintWeight: 1
+    m_TargetPositionWeight: 0.75
+    m_TargetRotationWeight: 0
+    m_HintWeight: 0
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
   m_SourceObjectsGUIToggle: 1
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4305128306883488003}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d779fecdcee6294c98d735253c806ab, type: 3}
   m_Name: 
@@ -1944,14 +1944,7 @@ MonoBehaviour:
   headBodyOffset: {x: 0, y: 0, z: 0}
   feetOffset: {x: 0, y: 0, z: 0}
   turnSmoothness: 0.2
-  leftJoystick:
-    actionPath: /actions/default/in/JoyStickPosition
-    needsReinit: 0
-  leftHand: 1
-  rightJoystick:
-    actionPath: 
-    needsReinit: 0
-  rightHand: 2
+  speedOffset: 0
   LeftLegBones:
   - {fileID: 1512050979326782033}
   - {fileID: 6071177986542498447}
@@ -1964,6 +1957,7 @@ MonoBehaviour:
   - {fileID: 4543775610814296622}
   - {fileID: 2235534790532711162}
   - {fileID: 6402960496594166360}
+  debug: {fileID: 0}
 --- !u!95 &1193685999
 Animator:
   serializedVersion: 3
